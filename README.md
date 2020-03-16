@@ -1,5 +1,5 @@
 ### Circuit Breaker
-This guide walks we through the process of applying circuit breakers to potentially failing method calls by using the Netflix Hystrix fault tolerance library.
+This guide walks us through the process of applying circuit breakers to potentially failing method calls by using the Netflix Hystrix fault tolerance library.
 
 ### What We Will Build
 We will build a microservice application that uses the circuit breaker pattern to gracefully degrade functionality when a method call fails. Use of the Circuit Breaker pattern can let a microservice continue operating when a related service fails, preventing the failure from cascading and giving the failing service time to recover.
@@ -75,12 +75,12 @@ public class CircuitBreakerReadingApplication {
 	}
 }
 ```
-To get the list from your bookstore, we can use Spring’s RestTemplate template class. RestTemplate makes an HTTP GET request to the bookstore service’s URL and returns the result as a String.
+To get the list from your bookstore, we can use Springâ€™s RestTemplate template class. RestTemplate makes an HTTP GET request to the bookstore serviceâ€™s URL and returns the result as a String.
 
 We now can access, in a browser, the /to-read endpoint of our reading application and see our reading list. However, since we rely on the bookstore application, if anything happens to it or if the reading application is unable to access Bookstore, we will have no list and our users will get a nasty HTTP 500 error message.
 
 ### Apply the Circuit Breaker Pattern
-Netflix’s Hystrix library provides an implementation of the circuit breaker pattern. When we apply a circuit breaker to a method, Hystrix watches for failing calls to that method, and, if failures build up to a threshold, Hystrix opens the circuit so that subsequent calls automatically fail. While the circuit is open, Hystrix redirects calls to the method, and they are passed to your specified fallback method.
+Netflixâ€™s Hystrix library provides an implementation of the circuit breaker pattern. When we apply a circuit breaker to a method, Hystrix watches for failing calls to that method, and, if failures build up to a threshold, Hystrix opens the circuit so that subsequent calls automatically fail. While the circuit is open, Hystrix redirects calls to the method, and they are passed to your specified fallback method.
 
 Spring Cloud Netflix Hystrix looks for any method annotated with the @HystrixCommand annotation and wraps that method in a proxy connected to a circuit breaker so that Hystrix can monitor it. This currently works only in a class marked with @Component or @Service. Therefore, in the circuit-breaker application, we need to add a new class (called BookService).
 
