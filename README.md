@@ -138,7 +138,7 @@ Cloud Native Java (O'Reilly)
 ### The Hystrix Dashboard
 A nice optional feature of Hystrix is the ability to monitor its status on a dashboard.
 
-To enable it, we’ll put spring-cloud-starter-hystrix-dashboard and spring-boot-starter-actuator in the pom.xml of our ‘REST Consumer’:
+To enable it, we'll put spring-cloud-starter-hystrix-dashboard and spring-boot-starter-actuator in the pom.xml of our REST Consumer :
 
 ```
 <dependency>
@@ -155,9 +155,9 @@ To enable it, we’ll put spring-cloud-starter-hystrix-dashboard and spring-boot-s
 
 The former needs to be enabled via annotating a @Configuration with @EnableHystrixDashboard and the latter automatically enables the required metrics within our web-application.
 
-After we’ve done restarting the application, we’ll point a browser at (http://localhost:8080/hystrix), input the metrics URL of a ‘http://localhost:8080/actuator/hystrix.stream’ and begin monitoring.
+After we've done restarting the application, we'll point a browser at [Hystrix Dashboard](http://localhost:8080/hystrix), input the metrics URL of a http://localhost:8080/actuator/hystrix.stream and begin monitoring.
 
-Monitoring a ‘hystrix.stream’ is something fine, but if you have to watch multiple Hystrix-enabled applications, it will become inconvenient. For this purpose, Spring Cloud provides a tool called Turbine, which can aggregate streams to present in one Hystrix Dashboard.
+Monitoring a hystrix.stream is something fine, but if you have to watch multiple Hystrix-enabled applications, it will become inconvenient. For this purpose, Spring Cloud provides a tool called Turbine, which can aggregate streams to present in one Hystrix Dashboard.
 
 ### Summary
 Congratulations! We have just developed a Spring application that uses the circuit breaker pattern to protect against cascading failures and to provide fallback behavior for potentially failing calls.
