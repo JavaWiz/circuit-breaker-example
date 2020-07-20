@@ -155,7 +155,7 @@ To enable it, we'll put spring-cloud-starter-hystrix-dashboard and spring-boot-s
 
 The former needs to be enabled via annotating a @Configuration with @EnableHystrixDashboard and the latter automatically enables the required metrics within our web-application.
 
-After we've done restarting the application, we'll point our browser at [Hystrix Dashboard](http://localhost:8080/hystrix), Add http://localhost:8080/hystrix.stream in dashboard to get a meaningful dynamic visual representation of the circuit being monitored by the Hystrix component.
+After we've done restarting the application, we'll point our browser at [Hystrix Dashboard](http://localhost:8080/hystrix), Add http://localhost:8080/actuator/hystrix.stream in dashboard to get a meaningful dynamic visual representation of the circuit being monitored by the Hystrix component.
 
 Monitoring a hystrix.stream is something fine, but if you have to watch multiple Hystrix-enabled applications, it will become inconvenient. For this purpose, Spring Cloud provides a tool called Turbine, which can aggregate streams to present in one Hystrix Dashboard.
 
